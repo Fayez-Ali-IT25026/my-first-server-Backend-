@@ -1,9 +1,12 @@
 import express from 'express';
+import cors from 'cors'
 
 const app = express();
 const PORT = process.env.PORT || 5000 ;
 
 
+app.use(cors());
+app.use(express.json());
 
 
 const user = [
@@ -43,6 +46,17 @@ app.get('/users',(req,res)=>{
     res.send(user);
  });
 
+
+
+
+
+ app.post('/users',(req,res)=>{
+  
+
+    console.log('well done', req.body)
+    // res.send('WELL DONE')
+     res.send({success:true , message : 'user added'})
+ })
 
 
  
